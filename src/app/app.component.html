@@ -1,3 +1,141 @@
-<h1>
-  {{title}}
-</h1>
+<div class="jumbotron jumbotron-fluid" style="background-color: #330033;margin-bottom:0;
+                                                  background-image: url(https://www.transparenttextures.com/patterns/dark-stripes-light.png);">
+  <div class="container">
+   <img src="./assets/logo.png" class="img-fluid" alt="Responsive image">
+   <hr class="my-4" style="background-color:white">
+  <p class="lead" style="color:white;text-align:center;font-family: monospace;
+                                                         white-space: normal;">Coming soon.</p>
+                                                         <div class="text-center" >
+   <p class="lead" style="color:white;text-align:center;font-family: monospace;
+                                                           white-space: normal;">Form for registration for sessions.</p>
+                                                           <div class="text-center" >
+   </div>
+  </div>
+
+</div>
+</div>
+<div class="alert alert-success" role="alert" *ngIf=success style="margin:4%;">
+  <strong>Well done!</strong> You successfully registered.
+</div>
+<div style="background-color:#f6f6f6">
+<div *ngIf=!success>
+
+</div>
+<div class="container ngng" style="padding:2%" *ngIf=!success>
+<form [formGroup]="myform" style="padding:4%">
+  <div class="form-group">
+    <label for="exampleInputRegisterno">Register No.*</label>
+    <input type="number" (change)="search()" formControlName="regno" class="form-control" id="exampleInputRegisterno"  placeholder="Enter Register No.">
+ <small *ngIf=this.waitcheck id="emailHelp" class="form-text text-muted">Please wait.....</small>
+ <small *ngIf=this.error id="emailHelp" class="form-control-feedback" style="color:red">No records Found</small>
+  </div>
+<div class="form-group">
+    <label for="exampleInputName">Name*</label>
+    <input type="text" class="form-control" formControlName="name" id="exampleInputName"  placeholder="Enter Name">
+
+  </div>
+  <div class="form-group">
+      <label for="exampleInputEmail">Email*</label>
+      <input type="email" class="form-control" formControlName="email" id="exampleInputEmail"  placeholder="Enter Email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputNumber">Mobile No.*</label>
+        <input type="number" class="form-control" formControlName="mobile" id="exampleInputNumber"  placeholder="Enter Mobile Number">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your Number with anyone else.</small>
+      </div>
+<div class="row row-eq-height" style="margin:2%;">
+  <div class="col-md-3" >
+    <div class="card h-100">
+      <div class="card-block">
+        <h3 class="card-title">Networks</h3>
+        <p class="card-text">Fascinated about how the internet works?. Want to know how computers communicate with each other? Connect with
+        us in the session to communicate with us and know how stuffs really works.</p>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3" >
+      <div class="card h-100">
+        <div class="card-block">
+          <h3 class="card-title">Data Structures</h3>
+          <p class="card-text">Behind every "successfull" code there is a proper data structure used. To know the making of the code,
+          Join us lets catch it up together.</p>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3" >
+        <div class="card h-100">
+          <div class="card-block">
+            <h3 class="card-title">DAA</h3>
+            <p class="card-text">THe greatest frustration in any coding competition : TIMEOUTS ! Want to know why that happens? Eager
+            to solve them ? Come let's analyse algorithms together.</p>
+
+          </div>
+        </div>
+      </div>
+  <div class="col-md-3">
+    <div class="card h-100">
+      <div class="card-block">
+        <h3 class="card-title">Web</h3>
+        <p class="card-text">Tired of competitive coding ? Interested in designing cool webpagesw? There is always some magic that always
+        web pages look so cool. To know more about the intricacies of web designs, buckle up for the session up together.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+   <div class="form-group row">
+     <label for="example-text-input" class="col-md-6 col-form-label">Morning Sessions</label>
+
+     <div class="col-md-6">
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"  style="font-family:monospace" aria-expanded="false">
+         Select the session you want to attend
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" >
+         <button class="dropdown-item" type="button" (click)="selectmor(false)"  style="font-family:monospace" ><b>None</b> </button>
+          <button class="dropdown-item" type="button" [disabled]=!n.number  style="font-family:monospace" (click)="selectmor(n)" *ngFor="let n of subdata" ><b>{{n.name}}</b> seats left are {{n.number}}</button>
+
+        </div>
+      </div>
+     </div>
+
+   </div>
+<div class="form-group row">
+
+     <label for="example-text-input" class="col-md-6 col-form-label">Afternoon  Sessions</label>
+
+     <div class="col-md-6">
+
+      <div class="btn-group">
+
+        <button type="button"  class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:monospace">
+         Select the session you want to attend
+        </button>
+
+        <div class="dropdown-menu dropdown-menu-right">
+         <button class="dropdown-item" type="button" (click)="selectaft(false)"  style="font-family:monospace"><b>None</b> </button>
+         <button class="dropdown-item" type="button" (click)="selectaft(n)"  style="font-family:monospace" [disabled]=!n.number *ngFor="let n of aftdata" ><b>{{n.name}}</b> seats left are {{n.number}}</button>
+
+
+        </div>
+      </div>
+     </div>
+   </div>
+      <small id="emailHelp" class="form-text text-muted">Select None if you are not attending.</small>
+<br>
+   <div *ngIf="myform.get('mordata').value" style="color:red">You have selected in morning session : {{myform.get('mordata').value}}</div>
+<div *ngIf="myform.get('aftdata').value" style="color:red">You have selected in afternoon session : {{myform.get('aftdata').value}}</div>
+
+<button type="button" [disabled]="myform.invalid || submitc" class="btn btn-success" (click)="submit()">Submit</button>
+</form>
+
+</div>
+</div>
+<footer class="footer" style="background-color: #330033;margin:0;color:white;background-image: url(https://www.transparenttextures.com/patterns/dark-stripes-light.png);">
+<div class="container">
+<h5 style="text-align:center;padding:2%;font-family:monospace;margin:0">Powered By <img class="img-thumbnail" style="width:7%;padding:0" src="./assets/favicon.ico"></h5>
+</div>
+</footer>
