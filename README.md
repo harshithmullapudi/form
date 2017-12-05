@@ -4,7 +4,7 @@ This project was made to make registrations for classes conducted by Association
 
 ## Website
 
-Check it  -  https://github.com/harshithmullapudi/form/dist/
+Check it  -  https://harshithmullapudi.github.io/form/dist/
 
 ## Build
 
