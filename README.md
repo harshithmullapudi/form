@@ -12,4 +12,4 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Technologies Used
 
-ANGULAE 2,HTML, CSS, BOOTSTRAP, FIREBASE
+ANGULAR 2, HTML, CSS, BOOTSTRAP, FIREBASE
